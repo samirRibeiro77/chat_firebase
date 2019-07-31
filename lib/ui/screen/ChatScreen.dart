@@ -1,4 +1,4 @@
-import 'package:chat_firebase/ui/widget/ChatMessage.dart';
+import 'package:chat_firebase/ui/widget/ChatMessageList.dart';
 import 'package:chat_firebase/ui/widget/TextComposer.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +6,6 @@ class ChatScreen extends StatefulWidget {
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
-
 
 class _ChatScreenState extends State<ChatScreen> {
   @override
@@ -23,9 +22,8 @@ class _ChatScreenState extends State<ChatScreen> {
         body: Column(
           children: <Widget>[
             Expanded(
-                child: ListView(
-              children: <Widget>[ChatMessage(), ChatMessage(), ChatMessage()],
-            )),
+                child: ChatMessageList()
+            ),
             Container(
               decoration: BoxDecoration(
                 color: Theme.of(context).cardColor,

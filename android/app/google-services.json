@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "1037791557486",
-    "firebase_url": "https://chat-flutter-udemy.firebaseio.com",
-    "project_id": "chat-flutter-udemy",
-    "storage_bucket": "chat-flutter-udemy.appspot.com"
+    "project_number": "459976994625",
+    "firebase_url": "https://chat-firebase-udemy-samir.firebaseio.com",
+    "project_id": "chat-firebase-udemy-samir",
+    "storage_bucket": "chat-firebase-udemy-samir.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1037791557486:android:ead5ac002712713a",
+        "mobilesdk_app_id": "1:459976994625:android:ead5ac002712713a",
         "android_client_info": {
           "package_name": "br.com.samirribeiro.chat_firebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1037791557486-87kmlf7e9m5a3ukm4rn32g616uslugjk.apps.googleusercontent.com",
+          "client_id": "459976994625-b3sbaph49vfju2m4mitsrjoiehr06g9a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "br.com.samirribeiro.chat_firebase",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "1037791557486-nqtl6hnr0beeigm08vu30f3eapstol1v.apps.googleusercontent.com",
+          "client_id": "459976994625-kbdf2s5ko48fi3pegf0b9147c9t525c9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAq_kq2AA_6Uc7aKurxhP16b1-U7zEm6qY"
+          "current_key": "AIzaSyCIMWRQ5RFsTN-irdf08bOwDJlSZ2sgiwo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1037791557486-nqtl6hnr0beeigm08vu30f3eapstol1v.apps.googleusercontent.com",
+              "client_id": "459976994625-kbdf2s5ko48fi3pegf0b9147c9t525c9.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
