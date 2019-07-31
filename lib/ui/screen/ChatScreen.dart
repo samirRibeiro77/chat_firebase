@@ -7,6 +7,7 @@ class ChatScreen extends StatefulWidget {
   _ChatScreenState createState() => _ChatScreenState();
 }
 
+
 class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
@@ -23,11 +24,7 @@ class _ChatScreenState extends State<ChatScreen> {
           children: <Widget>[
             Expanded(
                 child: ListView(
-                  children: <Widget>[
-                    ChatMessage(),
-                    ChatMessage(),
-                    ChatMessage()
-                  ],
+              children: <Widget>[ChatMessage(), ChatMessage(), ChatMessage()],
             )),
             Container(
               decoration: BoxDecoration(

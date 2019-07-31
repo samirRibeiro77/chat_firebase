@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1037791557486",
+    "firebase_url": "https://chat-flutter-udemy.firebaseio.com",
+    "project_id": "chat-flutter-udemy",
+    "storage_bucket": "chat-flutter-udemy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037791557486:android:ead5ac002712713a",
+        "android_client_info": {
+          "package_name": "br.com.samirribeiro.chat_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1037791557486-87kmlf7e9m5a3ukm4rn32g616uslugjk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.samirribeiro.chat_firebase",
+            "certificate_hash": "913a978961942e71b555eadedd4be9080e0386c0"
+          }
+        },
+        {
+          "client_id": "1037791557486-nqtl6hnr0beeigm08vu30f3eapstol1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq_kq2AA_6Uc7aKurxhP16b1-U7zEm6qY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1037791557486-nqtl6hnr0beeigm08vu30f3eapstol1v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
