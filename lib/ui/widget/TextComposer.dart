@@ -1,8 +1,11 @@
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:image_picker/image_picker.dart';
 
 class TextComposer extends StatefulWidget {
   @override
@@ -26,9 +29,14 @@ Future<Null> _ensureLogedIn() async {
   }
 }
 
-_handleSubimitted(BuildContext context, String text) async {
+_handleSubimitted(BuildContext context, {String text, File image}) async {
   try {
     await _ensureLogedIn();
+    if (image != null) {
+      _sendMessage(image: image);
+      return;
+    }
+
     _sendMessage(text: text);
   }
   catch(error) {
@@ -39,10 +47,22 @@ _handleSubimitted(BuildContext context, String text) async {
   }
 }
 
-void _sendMessage({String text, String imageUrl}) {
+void _sendMessage({String text, File image}) async {
+  String imgUrl;
+  if (image != null) {
+    var task = FirebaseStorage.instance.ref()
+        .child(googleSignIn.currentUser.id + DateTime.now().millisecondsSinceEpoch.toString())
+        .putFile(image);
+
+    var taskSnapshot = await task.onComplete;
+    var url = await taskSnapshot.ref.getDownloadURL();
+
+    imgUrl = url.toString();
+  }
+
   Firestore.instance.collection("messages").add({
     "text":text,
-    "image":imageUrl,
+    "image":imgUrl,
     "senderName":googleSignIn.currentUser.displayName,
     "senderImage":googleSignIn.currentUser.photoUrl
   });
@@ -73,13 +93,22 @@ class _TextComposerState extends State<TextComposer> {
           children: <Widget>[
             Container(
               child:
-                  IconButton(icon: Icon(Icons.photo_camera), onPressed: () {}),
+                  IconButton(
+                      icon: Icon(Icons.photo_camera),
+                      onPressed: () async {
+                        File imgFile = await ImagePicker.pickImage(source: ImageSource.camera);
+                        if (imgFile == null) {
+                          return;
+                        }
+
+                        _handleSubimitted(context, image: imgFile);
+                      }),
             ),
             Expanded(
               child: TextField(
                 controller: _textController,
                 onSubmitted: (text) {
-                  _handleSubimitted(context, text);
+                  _handleSubimitted(context, text: text);
                   _reset();
                 },
                 decoration:
@@ -97,13 +126,13 @@ class _TextComposerState extends State<TextComposer> {
                   ? CupertinoButton(
                       child: Text("Enviar"),
                       onPressed: _isComposing ? () {
-                        _handleSubimitted(context, _textController.text);
+                        _handleSubimitted(context, text: _textController.text);
                         _reset();
                       } : null)
                   : IconButton(
                       icon: Icon(Icons.send),
                       onPressed: _isComposing ? () {
-                        _handleSubimitted(context, _textController.text);
+                        _handleSubimitted(context, text: _textController.text);
                         _reset();
                       } : null),
             )
